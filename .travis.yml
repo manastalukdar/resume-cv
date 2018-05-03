@@ -4,38 +4,30 @@
 #https://mirocupak.com/continuous-integration-for-latex/
 #https://github.com/thomastweets/cv-on-ghpages
 #https://github.com/PHPirates/travis-ci-latex-pdf
+#https://github.com/scottclowe/cv/blob/5763fbcaa8631b23f1bf729683a0fbc5b81d1e9b/.travis.yml
+#https://github.com/scottkosty/install-tl-ubuntu
 
 sudo: required
+
+language: generic
 
 branches:
   only:
     - master
 
 before_install:  
-  - chmod +x ./scripts/build/texlive_install.sh
+  - wget https://github.com/scottkosty/install-tl-ubuntu/raw/master/install-tl-ubuntu 
+  - chmod +x ./install-tl-ubuntu
+  - sudo ./install-tl-ubuntu
+  - export PATH="/opt/texbin:$PATH"
 #   - sudo apt-get -qq update && sudo apt-get install -y --no-install-recommends texlive-full
   #texlive-base texlive-latex-base  texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended texlive-fonts-extra dvipng
 
-install:
- - travis_wait 30 source ./scripts/build/texlive_install.sh
-
-cache:
-  directories:
-    - /tmp/texlive
-    - $HOME/.texlive
-
-# Change working directory so including files will work
-before_script: cd ./latex/
-
 script:
   - mkdir _build
-  # Prefix command with travis_wait x so it times out after 3 mins, because when the LaTeX doesn't compile pdflatex just hangs instead of quitting.
-  - travis_wait 3 pdflatex -output-directory _build ./latex/ManasTalukdar.tex
-  # Compile twice to fix possible references
-  - travis_wait 3 pdflatex -output-directory _build ./latex/ManasTalukdar.tex
-  # - pdflatex -interaction=nonstopmode -halt-on-error -output-directory _build latex/ManasTalukdar.tex
-  # - pdflatex -interaction=nonstopmode -halt-on-error -output-directory _build latex/ManasTalukdar_CV.tex
-  # - pdflatex -interaction=nonstopmode -halt-on-error -output-directory _build latex/ManasTalukdar_vNext.tex
+  - pdflatex -interaction=nonstopmode -halt-on-error -output-directory _build latex/ManasTalukdar.tex
+  - pdflatex -interaction=nonstopmode -halt-on-error -output-directory _build latex/ManasTalukdar_CV.tex
+  - pdflatex -interaction=nonstopmode -halt-on-error -output-directory _build latex/ManasTalukdar_vNext.tex
 
 #https://caveofcode.com/2017/05/publish-an-angular-app-to-github-pages/
 deploy:
