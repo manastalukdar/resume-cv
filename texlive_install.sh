@@ -79,7 +79,8 @@ tlmgr install   \
   chngcntr      \
   imakeidx      \
   preprint      \
-  lm       
+  lm            \
+  fontawesome
 
 
 # Keep no backups (not required, simply makes cache bigger)
