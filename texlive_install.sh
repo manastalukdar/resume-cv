@@ -79,8 +79,7 @@ tlmgr install   \
   chngcntr      \
   imakeidx      \
   preprint      \
-  lmodern       \
-  babel-english 
+  lm       
 
 
 # Keep no backups (not required, simply makes cache bigger)
