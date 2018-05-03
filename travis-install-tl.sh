@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 if [ -d /usr/local/texlive ]; then
-  echo "Found cache."
+  echo "Cache found."
   sudo /opt/texbin/tlmgr update --all
 else
   echo "Cache not found. Will download texlive."
