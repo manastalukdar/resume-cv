@@ -11,6 +11,11 @@ sudo: required
 
 language: generic
 
+cache:
+  directories:
+    - /opt/texbin
+    - /usr/local/texlive
+
 branches:
   only:
     - master
