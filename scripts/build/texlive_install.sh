@@ -21,6 +21,9 @@ if ! command -v texlua > /dev/null; then
   cd ..
 fi
 
+export PATH=/usr/local/texlive/2018/bin/x86_64-linux:$PATH
+sudo tlmgr --self --all update
+
 # Just including texlua so the cache check above works
 # Needed for any use of texlua even if not testing LuaTeX
 tlmgr install luatex
