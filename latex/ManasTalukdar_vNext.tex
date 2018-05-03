@@ -1,0 +1,190 @@
+\documentclass[letterpaper,10pt]{article}
+
+\usepackage[english]{babel}
+%\usepackage[T1]{fontenc} % needed for pipe character
+\usepackage[empty]{fullpage}
+\usepackage[pdftex]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[margin=0.5in]{geometry} % setting margins
+\usepackage{lmodern} % font
+\usepackage{fontawesome}
+\usepackage{titlesec} % section formatting
+\usepackage[usenames,dvipsnames]{color} % section formatting
+%\usepackage{pgffor}
+%\usepackage{xifthen}
+\usepackage{xparse}
+
+% https://latex.org/forum/viewtopic.php?t=5842
+\hyphenpenalty 10000
+\exhyphenpenalty 10000
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+%\addtolength{\oddsidemargin}{-0.375in}
+%\addtolength{\evensidemargin}{-0.375in}
+%\addtolength{\textwidth}{1in}
+%\addtolength{\topmargin}{-.5in}
+%\addtolength{\textheight}{1.0in}
+
+\title{Manas Talukdar}
+\author{Manas Talukdar}
+\date{\today}
+
+%\hypersetup{
+%	colorlinks=true,
+%	linkcolor=blue,
+%	filecolor=magenta,  
+%	urlcolor=cyan,   
+%%	urlcolor=[rgb]{0.0, 0.5, 1.0}, % http://latexcolor.com/
+%}
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+\fancyfoot[C, C]{
+	\begin{tabular}{c | c}
+		Manas Talukdar\enspace & \enspace \thepage \\
+	\end{tabular}
+}
+
+% Sections formatting
+\titleformat{\section}{
+	\vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+%-------------------------
+% Custom commands
+
+\NewDocumentCommand{\educationItem}{mmmom}{
+	\IfNoValueTF{#4}
+		{ \textbf{#1}, #2, \textit{#3} & #5 \\ }
+		{ \textbf{#1}, #2, \textit{#3}, {\small #4} & #5 \\ }
+}
+
+\newcommand{\experienceItem}[3]{
+	\begin{tabular*}{\textwidth}{c@{\extracolsep{\fill}}c}
+		\multicolumn{1}{l}{\textbf{#1}, #2} & \multicolumn{1}{r}{#3}\\
+	\end{tabular*}\vspace{-10pt}
+}
+
+\ExplSyntaxOn
+\NewDocumentCommand{\experienceSubItem}{mmo}{
+	\tl_if_empty:nTF{#2} 
+	{
+		\IfNoValueTF{#3} 
+		{ \textit{#1}\vspace{-8pt} }
+		{ \textit{#1\enspace[\href{#3}{#3}]}\vspace{-8pt} }
+	}
+	{
+		\IfNoValueTF{#3} 
+		{ \textit{#1\enspace(#2)}\vspace{-8pt} }
+		{ \textit{#1\enspace(#2)\enspace[\href{#3}{#3}]}\vspace{-8pt} }
+	}
+}
+\ExplSyntaxOff
+
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}}
+\newcommand{\resumeListItem}[1]{
+	\item{#1 \vspace{-6pt}}
+}
+
+%-------------------------------------------
+%%%%%%  Resume content starts here  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}\thispagestyle{empty}
+	
+	%----------Heading-----------------
+	\begin{center}
+		\begin{tabular}{c | c | c}			
+			\multicolumn{3}{c}{\textbf{\LARGE MANAS TALUKDAR}} \\[2mm]
+			\faMobile\enspace(xxx)-xxx-xxxx \enspace & \enspace \faEnvelopeO\enspace\href{mailto:x.y@gmail.com}{x.y@gmail.com} \enspace & \enspace \faLinkedin\enspace\href{https://www.linkedin.com/in/manastalukdar}{linkedin.com/in/manastalukdar} \\ 
+		\end{tabular}
+	\end{center}
+
+	%-----------Summary-----------------
+	{\fontfamily{qtm}\selectfont
+	\textit{Engineering manager experienced in hiring, mentoring software engineers and building and running a team. Excellent communication skills with experience in collaborating with users, executive leadership, product management and customer support. Over 10 years of software development experience with middleware, web services, cloud computing, distributed systems and IoT products. Quick learner, self-driven with proven track record in delivering projects that involved learning new technologies. Current core competencies in large scale system design and people management.}
+	}
+
+	%-----------Education-----------------
+	\section{Education}	
+	
+	\begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+		\educationItem
+		{North Carolina State University}{Raleigh, NC}{Master of Science, Electrical Engineering}{2005 -- May 2007}
+		\educationItem
+		{Gauhati University}{Assam, India}{Bachelor of Engg., Electrical Engg.}[Dean's List - 5 semesters]{Aug 2000 -- June 2004}		
+	\end{tabular*}
+
+	%-----------Recent Experience-----------------
+	\section{Recent Experience}
+	
+	\experienceItem{Software Engineering Team Leader}{OSIsoft, LLC., San Leandro, CA}{Jan 2016 -- present}
+
+	\experienceSubItem{IoT Product}{May 2017 -- present}
+	
+	\resumeItemListStart
+	\resumeListItem {Started new team/project on enterprise wide IoT data collection. Interviewed candidates for hiring into the team. Gathered requirements and defined product direction in collaboration with product management and group lead.}
+	\resumeListItem {Migrated legacy source control to Git. Developed an administration API with back-end and front-end. Developed a logging infrastructure. Developed mechanism for data egress from IoT module to enterprise storage solutions.}
+	\resumeItemListEnd
+
+	\experienceSubItem{SaaS Product}{Jan 2016 - April 2017}[https://bit.ly/2HUbQKb]
+	
+	\resumeItemListStart
+	\resumeListItem {Managed (using Agile processes) a team of software developers working on distributed enterprise scale SaaS product.}
+	\resumeListItem {Defined system architecture for a distributed sequential data store to process billions of streams. Collaborated with customers, product managers to identify requirements and develop road-map. Managed SDLC. Introduced CI. Researched new partner technologies and provided feedback [\href{https://bit.ly/2Hy2gfU}{bit.ly/2Hy2gfU}]. Presented at meetings and conferences.}
+	\resumeListItem {Recruited and on-boarded developers into team. Assisted team members with sprint tasks and helped them complete goals. Developed a caching service - passed on to developers in the team.}
+	\resumeItemListEnd
+
+	\experienceItem{Senior Software Developer}{OSIsoft, LLC., San Leandro, CA}{Feb 2015 -- Jan 2016}
+	
+	\experienceSubItem{SaaS Product}{}[https://bit.ly/2HUbQKb]
+	
+	\resumeItemListStart
+	\resumeListItem {Architected and developed distributed micro-services using new cloud technology -- Service Fabric [\href{https://bit.ly/2r5hSxY}{bit.ly/2r5hSxY}].}
+	\resumeListItem {Security champion for team. Threat modeled components and data flow in the project and led review sessions.}
+	\resumeListItem {Architected full-stack real-time health monitoring and logging system with data access and client APIs.}
+	\resumeListItem {Interviewed, on-boarded and mentored new engineers in project.}
+	\resumeItemListEnd
+
+	\experienceItem{Software Engineering}{OSIsoft, LLC., San Leandro, CA}{July 2007 -- Jan 2015}
+	\vspace{-8pt}
+	\resumeItemListStart
+	\resumeListItem {Developed parts of first cloud product [\href{https://bit.ly/2r4i9jV}{bit.ly/2r4i9jV}] at OSIsoft (REST APIs, enterprise wide software installation and auto-update system, alarming system, DevOps tools, etc.), middleware SDK, test automation, engineering rotation program.}
+	\resumeItemListEnd
+	
+	\experienceItem{Graduate Research/Teaching Assistant}{ECE Dept., NCSU, Raleigh, NC}{May 2006 -- May 2007}
+	\vspace{-8pt}
+	\resumeItemListStart
+	\resumeListItem {Wrote research proposals, research project on multi-agent formation controller, created and graded labs and taught some classes as TA for mechatronics and controls courses.}
+	\resumeItemListEnd
+
+	%-----------Skills-----------------
+	\section{Skills}
+
+	\textbf{Management}\vspace{-8pt}
+	\resumeItemListStart
+	\resumeListItem{Project backlog management, requirements analysis, people management, regular 1-1s, performance reviews, career progression mentoring, performance improvement plans, recruiting and on-boarding developers.}
+	\resumeItemListEnd
+
+	\textbf{Computing}\vspace{-8pt}
+	\resumeItemListStart
+	\resumeListItem {SaaS, IoT, distributed systems, cloud computing, micro-services, service-oriented architecture, developing APIs, web services, multi-threading, data modeling, software threat modeling, Agile methodology.}
+	\resumeListItem {Algorithms, data structures, machine learning (basic), design patterns, system design.}
+	\resumeListItem {.NET (C\#), Java, C++ (previous exp.), JavaScript, SQL, NoSQL.}
+	\resumeListItem {Azure (Service Fabric, DocumentDB, AppInsights, Redis Cache, etc.), REST, Git, WiX toolset, WPF, MVVM, MVC, ASP.NET, AngularJs.}
+	\resumeItemListEnd
+
+	\textbf{Languages:} Fluent in Hindi, Assamese (North East Indian language). Elementary Bengali. Basic Sanskrit.
+
+	\textbf{Assam Fine Arts and Crafts Society}, India, 5-year diploma in Fine Arts and Crafts.
+
+	%-------------------------------------------
+\end{document}
