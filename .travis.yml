@@ -17,7 +17,8 @@ branches:
     - master
 
 before_install:  
-  - scripts/build/travis-install-tl.sh
+  - chmod +x scripts/build/travis-install-tl.sh
+  - sudo ./scripts/build/travis-install-tl.sh
   - export PATH="/opt/texbin:$PATH"
   # refresh PATH variable
   - . /etc/environment
