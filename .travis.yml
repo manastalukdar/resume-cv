@@ -15,7 +15,7 @@ before_install:
   #texlive-base texlive-latex-base  texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended texlive-fonts-extra dvipng
 
 install:
- - ./scripts/build/texlive_install.sh
+ - travis_wait 30 sudo ./scripts/build/texlive_install.sh
 
 cache:
   directories:
