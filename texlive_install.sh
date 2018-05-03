@@ -78,7 +78,10 @@ tlmgr install   \
   multirow      \
   chngcntr      \
   imakeidx      \
-  preprint
+  preprint      \
+  lmodern       \
+  babel-english 
+
 
 # Keep no backups (not required, simply makes cache bigger)
 tlmgr option -- autobackup 0
