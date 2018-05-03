@@ -26,21 +26,21 @@ sudo tlmgr --self --all update
 
 # Just including texlua so the cache check above works
 # Needed for any use of texlua even if not testing LuaTeX
-tlmgr install luatex
+sudo tlmgr install luatex
 
 # Needed for TeX Live 2017
-tlmgr install xkeyval
+sudo tlmgr install xkeyval
 
 # A kind of minimum set of packages needed
-tlmgr install collection-latex
+sudo tlmgr install collection-latex
 
 # Install babel languages
-tlmgr install collection-langeuropean
+sudo tlmgr install collection-langeuropean
 
 # Index of packages: http://ctan.mirrors.hoobly.com/systems/texlive/tlnet/archive/
 # Other contrib packages: done as a block to avoid multiple calls to tlmgr
 # pgf includes tikz
-tlmgr install   \
+sudo tlmgr install   \
   exam          \
   amsmath       \
   amsthm        \
@@ -83,7 +83,7 @@ tlmgr install   \
   imakeidx
 
 # Keep no backups (not required, simply makes cache bigger)
-tlmgr option -- autobackup 0
+sudo tlmgr option -- autobackup 0
 
 # Update the TL install but add nothing new
-tlmgr update --self --all --no-auto-install
+sudo tlmgr update --self --all --no-auto-install
