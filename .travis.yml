@@ -16,12 +16,11 @@ branches:
   only:
     - master
 
-before_install:  
-  - chmod +x ./travis-install-tl.sh
+before_install:
   - ./travis-install-tl.sh
   # refresh PATH variable
   - . /etc/environment
-  - export PATH="/opt/texbin:$PATH"
+  # - export PATH="/opt/texbin:$PATH"
 
 script:
   - mkdir _build
