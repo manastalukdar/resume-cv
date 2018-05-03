@@ -22,25 +22,25 @@ if ! command -v texlua > /dev/null; then
 fi
 
 export PATH=/usr/local/texlive/2018/bin/x86_64-linux:$PATH
-sudo tlmgr --self --all update
+tlmgr --self --all update
 
 # Just including texlua so the cache check above works
 # Needed for any use of texlua even if not testing LuaTeX
-sudo tlmgr install luatex
+tlmgr install luatex
 
 # Needed for TeX Live 2017
-sudo tlmgr install xkeyval
+tlmgr install xkeyval
 
 # A kind of minimum set of packages needed
-sudo tlmgr install collection-latex
+tlmgr install collection-latex
 
 # Install babel languages
-sudo tlmgr install collection-langeuropean
+tlmgr install collection-langeuropean
 
 # Index of packages: http://ctan.mirrors.hoobly.com/systems/texlive/tlnet/archive/
 # Other contrib packages: done as a block to avoid multiple calls to tlmgr
 # pgf includes tikz
-sudo tlmgr install   \
+tlmgr install   \
   exam          \
   amsmath       \
   amsthm        \
@@ -83,7 +83,7 @@ sudo tlmgr install   \
   imakeidx
 
 # Keep no backups (not required, simply makes cache bigger)
-sudo tlmgr option -- autobackup 0
+tlmgr option -- autobackup 0
 
 # Update the TL install but add nothing new
-sudo tlmgr update --self --all --no-auto-install
+tlmgr update --self --all --no-auto-install
