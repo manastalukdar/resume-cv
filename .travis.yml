@@ -10,7 +10,7 @@
 
 sudo: required
 
-language: generic
+language: bash
 
 branches:
   only:
@@ -18,7 +18,7 @@ branches:
 
 before_install:
   - chmod +x ./travis-install-tl.sh
-  - bash ./travis-install-tl.sh
+  - ./travis-install-tl.sh
   # refresh PATH variable
   - . /etc/environment
   - export PATH="/opt/texbin:$PATH"
@@ -27,10 +27,10 @@ before_install:
 
 script:
   - mkdir _build
-  - latexmk
   - pdflatex -interaction=nonstopmode -halt-on-error -output-directory _build latex/ManasTalukdar.tex
   - pdflatex -interaction=nonstopmode -halt-on-error -output-directory _build latex/ManasTalukdar_CV.tex
   - pdflatex -interaction=nonstopmode -halt-on-error -output-directory _build latex/ManasTalukdar_vNext.tex
+  - latexmk
 
 cache:
   directories:
