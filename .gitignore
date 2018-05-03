@@ -220,4 +220,5 @@ TSWLatexianTemp*
 *-tags.tex
 
 # pdf files from latex older
-/latex/*.pdf
+/latex/*
+!/latex/*.tex

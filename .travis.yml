@@ -20,8 +20,8 @@ before_install:
   - chmod +x ./travis-install-tl.sh
   - bash ./travis-install-tl.sh
   # refresh PATH variable
-  - . /etc/environment
-  # - export PATH="/opt/texbin:$PATH"
+  # - . /etc/environment
+  - export PATH="/opt/texbin:$PATH"
 
 script:
   - mkdir _build
