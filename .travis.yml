@@ -19,13 +19,6 @@ branches:
 before_install:  
   - chmod +x scripts/build/travis-install-tl.sh
   - sudo ./scripts/build/travis-install-tl.sh
-  - export PATH="/opt/texbin:$PATH"
-  # refresh PATH variable
-  - . /etc/environment
-  # latexmk has to be installed after install-tl-ubuntu to ensure that texlive is not taken from debian, but the latest one. In other words: addons->apt->packages cannot be used
-  - sudo apt-get install -y latexmk
-#   - sudo apt-get -qq update && sudo apt-get install -y --no-install-recommends texlive-full
-  #texlive-base texlive-latex-base  texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended texlive-fonts-extra dvipng
 
 script:
   - mkdir _build
