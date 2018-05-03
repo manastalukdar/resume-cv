@@ -17,14 +17,10 @@ branches:
     - master
 
 before_install:
-  # - chmod +x ./travis-install-tl.sh
-  # - bash ./travis-install-tl.sh
-  # refresh PATH variable
-  # - . /etc/environment
-  - travis_retry wget https://github.com/scottkosty/install-tl-ubuntu/raw/master/install-tl-ubuntu
-  - chmod +x ./install-tl-ubuntu
-  - sudo ./install-tl-ubuntu
+  - chmod +x ./travis-install-tl.sh
+  - sudo ./travis-install-tl.sh  
   - export PATH="/opt/texbin:$PATH"
+  # - . /etc/environment # refresh PATH variable
   # latexmk has to be installed after install-tl-ubuntu to ensure that texlive is not taken from debian, but the latest one. In other words: addons->apt->packages cannot be used
   # - sudo apt-get install -y latexmk
 
@@ -33,6 +29,7 @@ script:
   - pdflatex -interaction=nonstopmode -halt-on-error -output-directory _build latex/ManasTalukdar.tex
   - pdflatex -interaction=nonstopmode -halt-on-error -output-directory _build latex/ManasTalukdar_CV.tex
   - pdflatex -interaction=nonstopmode -halt-on-error -output-directory _build latex/ManasTalukdar_vNext.tex
+  # - latexmk
 
 # cache:
 #   directories:
