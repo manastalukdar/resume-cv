@@ -16,7 +16,8 @@ branches:
   only:
     - master
 
-before_install:
+before_install:  
+  - chmod +x ./travis-install-tl.sh
   - ./travis-install-tl.sh
   # refresh PATH variable
   - . /etc/environment
