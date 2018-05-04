@@ -82,7 +82,8 @@ tlmgr install   \
   lm            \
   fontawesome   \
   titlesec      \
-  xpackages
+  l3packages    \
+  l3kernel
 
 
 # Keep no backups (not required, simply makes cache bigger)
