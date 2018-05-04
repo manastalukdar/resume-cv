@@ -1,4 +1,5 @@
 // https://stackoverflow.com/questions/31185785/pdf-js-render-pdf-with-scrollbar
+// https://stackoverflow.com/questions/47054944/responsive-pdf-renderer-with-pdfjs
 
 // URL of PDF document
 var url = 'https://raw.githubusercontent.com/manastalukdar/resume-cv/gh-pages/resources/ManasTalukdar_CV.pdf';
@@ -28,17 +29,21 @@ function renderAllPages(pdf) {
 function renderPage(pdf, num) {
   var pageNumber = num;
   pdf.getPage(pageNumber).then(function(page) {
-    console.log('Page loaded');
+    console.log('Page loaded');    
     
-    var scale = 1.0;
-    var viewport = page.getViewport(scale);
+    var scaleConstant = 1.0;
+    var unscaledViewport = page.getViewport(scaleConstant);
+    //var viewport = page.getViewport(scaleConstant);
+    // https://stackoverflow.com/questions/13038146/pdf-js-scale-pdf-on-fixed-width
+    var viewport = page.getViewport(window.screen.width / page.getViewport(scaleConstant).width);
     
-    var canvasId = 'pdf-viewer-' + num;
-    $('#pdf-viewer').append($('<canvas/>', {'id': canvasId}));
+    var canvasId = 'pdf-canvas-' + num;
+    $('#pdf-contents').append($('<canvas/>', {'id': canvasId, 'class': 'pdf-canvas'}));
 
     // Prepare canvas using PDF page dimensions
     var canvas = document.getElementById(canvasId);
     var context = canvas.getContext('2d');
+		//var viewport = Math.min((canvas.height / unscaledViewport.height), (canvas.width / unscaledViewport.width));
     canvas.height = viewport.height;
     canvas.width = viewport.width;
 

@@ -1,9 +1,10 @@
 #pdf-contents {
-    overflow-y:scroll;
-	display: none;
+    /*overflow-y:scroll;*/
+    width:100%;
 }
 
-#pdf-canvas {
+.pdf-canvas {
 	border: 1px solid rgba(0,0,0,0.2);
 	box-sizing: border-box;
+  width: 100%;
 }
