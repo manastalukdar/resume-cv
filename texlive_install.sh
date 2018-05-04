@@ -80,7 +80,8 @@ tlmgr install   \
   imakeidx      \
   preprint      \
   lm            \
-  fontawesome
+  fontawesome   \
+  titlesec
 
 
 # Keep no backups (not required, simply makes cache bigger)
