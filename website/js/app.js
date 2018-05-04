@@ -1,5 +1,7 @@
 // https://stackoverflow.com/questions/31185785/pdf-js-render-pdf-with-scrollbar
 // https://stackoverflow.com/questions/47054944/responsive-pdf-renderer-with-pdfjs
+// https://stackoverflow.com/questions/33063213/pdf-js-with-text-selection
+// https://www.sitepoint.com/custom-pdf-rendering/
 
 // URL of PDF document
 var url = 'https://raw.githubusercontent.com/manastalukdar/resume-cv/gh-pages/resources/ManasTalukdar_CV.pdf';
