@@ -1,3 +1,5 @@
+// https://stackoverflow.com/questions/31185785/pdf-js-render-pdf-with-scrollbar
+
 // URL of PDF document
 var url = 'https://raw.githubusercontent.com/manastalukdar/resume-cv/gh-pages/resources/ManasTalukdar_CV.pdf';
 
@@ -11,28 +13,31 @@ pdfjsLib.GlobalWorkerOptions.workerSrc = '//mozilla.github.io/pdf.js/build/pdf.w
 var loadingTask = pdfjsLib.getDocument(url);
 loadingTask.promise.then(function(pdf) {
   console.log('PDF loaded');
-  renderAllPages();
+  renderAllPages(pdf);
 }, function (reason) {
   // PDF loading error
   console.error(reason);
 });
 
-function renderAllPages() {
-  for (var i = 1; i <= pdfDoc.numPages; i++) {
-   renderPage(i);
+function renderAllPages(pdf) {
+  for (var i = 1; i <= pdf.numPages; i++) {
+   renderPage(pdf, i);
   }
  }
 
-function renderPage(num) {
-  var pageNumber = 1;
+function renderPage(pdf, num) {
+  var pageNumber = num;
   pdf.getPage(pageNumber).then(function(page) {
     console.log('Page loaded');
     
     var scale = 1.0;
     var viewport = page.getViewport(scale);
+    
+    var canvasId = 'pdf-viewer-' + num;
+    $('#pdf-viewer').append($('<canvas/>', {'id': canvasId}));
 
     // Prepare canvas using PDF page dimensions
-    var canvas = document.getElementById('pdf-canvas');
+    var canvas = document.getElementById(canvasId);
     var context = canvas.getContext('2d');
     canvas.height = viewport.height;
     canvas.width = viewport.width;
