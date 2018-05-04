@@ -21,27 +21,14 @@ cache:
     - /tmp/texlive
     - $HOME/.texlive
 
-# before_install:
-#   - chmod +x ./travis-install-tl.sh
-#   - sudo ./travis-install-tl.sh  
-#   - export PATH="/opt/texbin:$PATH"
-  # - . /etc/environment # refresh PATH variable
-  # latexmk has to be installed after install-tl-ubuntu to ensure that texlive is not taken from debian, but the latest one. In other words: addons->apt->packages cannot be used
-  # - sudo apt-get install -y latexmk
-
 install:
  - source ./texlive_install.sh
- 
+
 script:
   - mkdir _build
   - travis_wait 3 pdflatex -interaction=nonstopmode -halt-on-error -output-directory _build latex/ManasTalukdar.tex
   - travis_wait 3 pdflatex -interaction=nonstopmode -halt-on-error -output-directory _build latex/ManasTalukdar_CV.tex
   - travis_wait 3 pdflatex -interaction=nonstopmode -halt-on-error -output-directory _build latex/ManasTalukdar_vNext.tex
-
-# cache:
-#   directories:
-#     - /opt/texbin
-#     - /usr/local/texlive
 
 #https://caveofcode.com/2017/05/publish-an-angular-app-to-github-pages/
 deploy:

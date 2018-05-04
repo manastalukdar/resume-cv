@@ -93,3 +93,4 @@ tlmgr option -- autobackup 0
 tlmgr update --self --all --no-auto-install
 
 # https://tex.stackexchange.com/questions/10062/whats-the-deal-with-tex-live-and-expl3-sty#10070
+# https://ctan.org/pkg/
