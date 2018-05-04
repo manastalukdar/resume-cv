@@ -81,7 +81,8 @@ tlmgr install   \
   preprint      \
   lm            \
   fontawesome   \
-  titlesec
+  titlesec      \
+  xparse
 
 
 # Keep no backups (not required, simply makes cache bigger)
