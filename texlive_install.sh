@@ -82,7 +82,7 @@ tlmgr install   \
   lm            \
   fontawesome   \
   titlesec      \
-  xparse
+  xpackages
 
 
 # Keep no backups (not required, simply makes cache bigger)
@@ -90,3 +90,5 @@ tlmgr option -- autobackup 0
 
 # Update the TL install but add nothing new
 tlmgr update --self --all --no-auto-install
+
+# https://tex.stackexchange.com/questions/10062/whats-the-deal-with-tex-live-and-expl3-sty#10070
