@@ -29,9 +29,7 @@ script:
   - travis_wait 3 pdflatex -interaction=nonstopmode -halt-on-error -output-directory _build latex/ManasTalukdar.tex
   - travis_wait 3 pdflatex -interaction=nonstopmode -halt-on-error -output-directory _build latex/ManasTalukdar_CV.tex
   - travis_wait 3 pdflatex -interaction=nonstopmode -halt-on-error -output-directory _build latex/ManasTalukdar_vNext.tex
-
-after_script:
-  - cp ./_build/*.pdf ./website/resources/
+  - cp ./_build/*.pdf ./website/resources/  
 
 #https://caveofcode.com/2017/05/publish-an-angular-app-to-github-pages/
 deploy:
