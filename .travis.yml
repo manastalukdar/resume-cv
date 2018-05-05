@@ -26,9 +26,9 @@ install:
 
 script:
   - mkdir _build
-  - travis_wait 3 pdflatex -interaction=nonstopmode -halt-on-error -output-directory _build latex/ManasTalukdar.tex
-  - travis_wait 3 pdflatex -interaction=nonstopmode -halt-on-error -output-directory _build latex/ManasTalukdar_CV.tex
-  - travis_wait 3 pdflatex -interaction=nonstopmode -halt-on-error -output-directory _build latex/ManasTalukdar_vNext.tex
+  - travis_wait 3 pdflatex -interaction=nonstopmode -halt-on-error -output-directory _build -include-directory latex latex/ManasTalukdar.tex
+  - travis_wait 3 pdflatex -interaction=nonstopmode -halt-on-error -output-directory _build -include-directory latex latex/ManasTalukdar_CV.tex
+  - travis_wait 3 pdflatex -interaction=nonstopmode -halt-on-error -output-directory _build -include-directory latex latex/ManasTalukdar_vNext.tex
   - cp ./_build/*.pdf ./website-legacy/resources/  
 
 #https://caveofcode.com/2017/05/publish-an-angular-app-to-github-pages/
