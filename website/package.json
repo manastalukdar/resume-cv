@@ -1,14 +1,19 @@
 {
-  "name": "resume-cv",
-  "version": "1.0.0",
-  "description": "Resume, CV hosting website.",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "Manas Talukdar",
-  "license": "MIT",
+  "name": "website",
+  "version": "0.1.0",
+  "private": true,
   "dependencies": {
-    "pdfjs-dist": "^2.0.489"
+    "pdfjs": "^2.0.0-alpha.7",
+    "react": "^16.3.2",
+    "react-dom": "^16.3.2",
+    "react-pdf": "^3.0.5",
+    "react-scripts": "1.1.4",
+    "webpack": "^4.7.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
   }
 }

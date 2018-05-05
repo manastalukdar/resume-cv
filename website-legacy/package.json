@@ -1,0 +1,14 @@
+{
+  "name": "resume-cv",
+  "version": "1.0.0",
+  "description": "Resume, CV hosting website.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Manas Talukdar",
+  "license": "MIT",
+  "dependencies": {
+    "pdfjs-dist": "^2.0.489"
+  }
+}

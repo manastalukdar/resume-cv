@@ -37,7 +37,7 @@ deploy:
   skip-cleanup: true
   github-token: $GITHUB_TOKEN
   keep-history: true
-  local-dir: website
+  local-dir: website-legacy
   on:
     branch: master
   target-branch: gh-pages
