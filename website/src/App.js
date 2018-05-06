@@ -6,7 +6,7 @@ import './App.css';
 import pdfjsLib from 'pdfjs-dist/';
 import $ from 'jquery';
 
-// https://github.com/yurydelendik/pdfjs-react
+// https://github.com/mozilla/pdf.js/tree/master/examples/components
 
 class App extends Component {
   componentDidMount() {
