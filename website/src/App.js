@@ -67,6 +67,13 @@ class App extends Component {
         </header> */}
         <p className="App-intro"/>
         <div className="App-body">
+          <p>
+            <div>
+              <a href="https://github.com/manastalukdar/resume-cv/blob/gh-pages/resources/ManasTalukdar_CV.pdf" target="_blank">
+                PDF File
+              </a>
+            </div>
+          </p>
         </div>
       </div>
     );
