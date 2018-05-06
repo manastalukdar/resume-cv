@@ -34,6 +34,7 @@ script:
   - travis_wait 3 pdflatex -interaction=nonstopmode -halt-on-error -output-directory ../_build ManasTalukdar_CV.tex
   - travis_wait 3 pdflatex -interaction=nonstopmode -halt-on-error -output-directory ../_build ManasTalukdar_vNext.tex
   - cd ..
+  - mkdir website/build
   - mkdir website/build/resources
   - cp ./_build/*.pdf ./website/build/resources/  
   - cd website
