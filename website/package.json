@@ -1,7 +1,6 @@
 {
   "name": "website",
   "version": "0.1.0",
-  "homepage": "https://github.com/manastalukdar/resume-cv/",
   "private": true,
   "dependencies": {
     "jquery": "^3.3.1",
