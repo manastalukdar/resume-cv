@@ -29,11 +29,11 @@ class App extends Component {
       pdf.getPage(pageNumber).then(function(page) {
         console.log('Page loaded');    
         
-        var scaleConstant = 1.5;
-        var unscaledViewport = page.getViewport(scaleConstant);
-        //var viewport = page.getViewport(scaleConstant);
+        var scaleConstant = 2.0;
+        // var unscaledViewport = page.getViewport(scaleConstant);
+        var viewport = page.getViewport(scaleConstant);
         // https://stackoverflow.com/questions/13038146/pdf-js-scale-pdf-on-fixed-width
-        var viewport = page.getViewport(window.screen.width / page.getViewport(scaleConstant).width);
+        // var viewport = page.getViewport(window.screen.width / page.getViewport(scaleConstant).width);
         
         var canvasId = 'pdf-canvas-' + num;
         $('#pdf-contents').append($('<canvas/>', {'id': canvasId, 'class': 'pdf-canvas'}));
