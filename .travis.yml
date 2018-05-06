@@ -9,7 +9,7 @@
 #https://github.com/Jery77/BA
 
 sudo: required
-
+warnings_are_errors: false
 language: node_js
 node_js:
   - "node"
