@@ -83,7 +83,8 @@ tlmgr install   \
   fontawesome   \
   titlesec      \
   l3packages    \
-  l3kernel
+  l3kernel      \
+  tex-gyre
 
 
 # Keep no backups (not required, simply makes cache bigger)
