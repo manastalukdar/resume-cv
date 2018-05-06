@@ -37,6 +37,7 @@ script:
   - mkdir website/build
   - mkdir website/build/resources
   - cp ./_build/*.pdf ./website/build/resources/  
+  - ls /website/build/resources/
   - cd website
   - npm install
   - CI=false npm run build
