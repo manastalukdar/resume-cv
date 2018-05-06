@@ -34,11 +34,10 @@ script:
   - travis_wait 3 pdflatex -interaction=nonstopmode -halt-on-error -output-directory ../_build ManasTalukdar_CV.tex
   - travis_wait 3 pdflatex -interaction=nonstopmode -halt-on-error -output-directory ../_build ManasTalukdar_vNext.tex
   - cd ..
-  - mkdir website/build
-  - mkdir website/build/resources  
   - cd website
   - npm install
   - CI=false npm run build
+  - mkdir ./build/resources  
   - cp ../_build/*.pdf ./build/resources/
 
 #https://caveofcode.com/2017/05/publish-an-angular-app-to-github-pages/
