@@ -11,6 +11,8 @@
 sudo: required
 
 language: node_js
+node_js:
+  - "node"
 
 branches:
   only:
@@ -20,6 +22,7 @@ cache:
   directories:
     - /tmp/texlive
     - $HOME/.texlive
+    - $TRAVIS_BUILD_DIR/website/node_modules
 
 install:
  - source ./texlive_install.sh
