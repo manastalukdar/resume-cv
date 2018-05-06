@@ -10,7 +10,7 @@
 
 sudo: required
 
-language: generic
+language: node_js
 
 branches:
   only:
@@ -31,7 +31,11 @@ script:
   - travis_wait 3 pdflatex -interaction=nonstopmode -halt-on-error -output-directory ../_build ManasTalukdar_CV.tex
   - travis_wait 3 pdflatex -interaction=nonstopmode -halt-on-error -output-directory ../_build ManasTalukdar_vNext.tex
   - cd ..
-  - cp ./_build/*.pdf ./website-legacy/resources/  
+  - mkdir website/resources
+  - cp ./_build/*.pdf ./website/resources/  
+  - cd website
+  - npm install
+  - npm run build
 
 #https://caveofcode.com/2017/05/publish-an-angular-app-to-github-pages/
 deploy:
@@ -39,7 +43,7 @@ deploy:
   skip-cleanup: true
   github-token: $GITHUB_TOKEN
   keep-history: true
-  local-dir: website-legacy
+  local-dir: website/build
   on:
     branch: master
   target-branch: gh-pages

@@ -26,3 +26,16 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+#pdf-contents {
+  /*overflow-y:scroll;*/
+  width:100%;
+  margin: 1em;
+}
+
+.pdf-canvas {
+  border: 1px solid rgba(0,0,0,0.2);
+  box-sizing: border-box;
+  width: 100%;
+  margin: 1em;
+}
