@@ -7,8 +7,6 @@ import $ from 'jquery';
 import { Container, Row, Col } from 'reactstrap';
 import { Button, ButtonGroup } from 'reactstrap';
 
-// https://github.com/mozilla/pdf.js/tree/master/examples/components
-
 class App extends Component {
   constructor (props) {
     super(props);
