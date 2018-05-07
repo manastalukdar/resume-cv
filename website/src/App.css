@@ -27,10 +27,21 @@
   to { transform: rotate(360deg); }
 }
 
-#pdf-contents {
+.container {
+  width:800px !important;
+  margin:0 auto;
+}
+
+#pdf-contents { /*#pdf-file, #resume-type*/
   /*overflow-y:scroll;*/
   width:800px;
   margin:0 auto;
+}
+
+#pdf-file, #resume-type {
+  display:flex;
+  align-items:center;
+  text-align: left;
 }
 
 .pdf-canvas {
