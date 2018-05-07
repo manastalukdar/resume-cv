@@ -1,13 +1,3 @@
-#https://tex.stackexchange.com/questions/398830/how-to-build-my-latex-automatically-using-travis-ci
-#https://github.com/harshjv/travis-ci-latex-pdf/blob/master/.travis.yml
-#http://jankuester.com/using-travis-ci-latex-projects/
-#https://mirocupak.com/continuous-integration-for-latex/
-#https://github.com/thomastweets/cv-on-ghpages
-#https://github.com/PHPirates/travis-ci-latex-pdf
-#https://github.com/scottclowe/cv/blob/5763fbcaa8631b23f1bf729683a0fbc5b81d1e9b/.travis.yml
-#https://github.com/scottkosty/install-tl-ubuntu
-#https://github.com/Jery77/BA
-
 sudo: required
 
 language: node_js
