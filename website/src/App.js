@@ -24,6 +24,7 @@ class App extends Component {
   }
 
     onRadioBtnClick(rSelected) {
+      console.log(process.env.PUBLIC_URL);
     this.setState({ rSelected:  rSelected});
     if (rSelected === "Long") {
       this.setState( {pdfFileRaw: this.state.pdfFileRawLong}, props => {
@@ -54,7 +55,7 @@ class App extends Component {
           </div>
           <Row>
             <div id="pdfjsContainer">
-              <object data={'/pdfjs/web/viewer.html?file=' + '/resources/' + this.state.pdfFileRaw} width="100%" height="600">PDF resume</object>
+              <object data={process.env.PUBLIC_URL + '/pdfjs/web/viewer.html?file=' + process.env.PUBLIC_URL + '/resources/' + this.state.pdfFileRaw} width="100%" height="600">PDF resume</object>
             </div>
           </Row>
         </div>      

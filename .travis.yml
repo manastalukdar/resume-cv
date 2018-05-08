@@ -25,9 +25,9 @@ script:
   - travis_wait 3 pdflatex -interaction=nonstopmode -halt-on-error -output-directory ../_build ManasTalukdar_vNext.tex
   - cd ..
   - cd website
-  - npm install
+  - npm install  
+  - cp ../_build/*.pdf ./public/resources/
   - CI=false npm run build
-  - cp ../_build/*.pdf ./build/resources/
 
 #https://caveofcode.com/2017/05/publish-an-angular-app-to-github-pages/
 deploy:
