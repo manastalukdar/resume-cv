@@ -13,6 +13,7 @@ import { PDFFindController } from 'pdfjs-dist/lib/web/pdf_find_controller';
 //import { PDFPrintService } from 'pdfjs-dist/lib/web/pdf_print_service';
 //import { PDFRenderingQueue } from 'pdfjs-dist/lib/web/pdf_rendering_queue';
 import 'pdfjs-dist/web/pdf_viewer.css';
+import 'pdfjs-dist/build/pdf.worker.js' ;
 
 class App extends Component {
   constructor (props) {
@@ -27,7 +28,7 @@ class App extends Component {
     pdfViewer: "" };
     this.onRadioBtnClick = this.onRadioBtnClick.bind(this);
 
-    pdfjsLib.GlobalWorkerOptions.workerSrc = 'pdfjs-dist/build/pdf.worker.js';
+    pdfjsLib.GlobalWorkerOptions.workerSrc = 'static/pdfjs-dist/build/pdf.worker.js';
   }
 
   componentDidMount() {
