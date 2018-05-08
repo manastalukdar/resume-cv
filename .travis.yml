@@ -27,7 +27,6 @@ script:
   - cd website
   - npm install
   - CI=false npm run build
-  - mkdir ./build/resources  
   - cp ../_build/*.pdf ./build/resources/
 
 #https://caveofcode.com/2017/05/publish-an-angular-app-to-github-pages/
