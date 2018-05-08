@@ -54,7 +54,7 @@ class App extends Component {
           </div>
           <Row>
             <div id="pdfjsContainer">
-              <object data={process.env.PUBLIC_URL + '/pdfjs/web/viewer.html?file=' + process.env.PUBLIC_URL + '/resources/' + this.state.pdfFileRaw} width="100%" height="600">PDF resume</object>
+              <object data={'/pdfjs/web/viewer.html?file=' + '/resources/' + this.state.pdfFileRaw} width="100%" height="600">PDF resume</object>
             </div>
           </Row>
         </div>      
