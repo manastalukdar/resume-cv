@@ -2,9 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import registerServiceWorker from './registerServiceWorker';
+//import registerServiceWorker from './registerServiceWorker';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-ReactDOM.render(<App url='https://raw.githubusercontent.com/manastalukdar/resume-cv/gh-pages/resources/ManasTalukdar_CV.pdf'/>, document.getElementById('root'));
-registerServiceWorker();
+ReactDOM.render(<App url='ManasTalukdar_CV.pdf'/>, document.getElementById('root'));
+//registerServiceWorker();
