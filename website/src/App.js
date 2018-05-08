@@ -150,7 +150,7 @@ class App extends Component {
   }
 
   onPrintBtnClick() {
-    alert("Work in progress. Download pdf and print for now.");
+    alert("Work in progress. Download pdf and print for now. Or, scale window to desired page resolution, refresh page, then print.");
     // let loadingTask = pdfjsLib.getDocument(this.state.pdfFileRaw);
     // loadingTask.promise.then((doc) => {
     //   let pagesOverview = this.state.pdfViewer.getPagesOverview();
