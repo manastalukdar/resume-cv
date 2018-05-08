@@ -27,8 +27,7 @@ class App extends Component {
     pdfViewer: "" };
     this.onRadioBtnClick = this.onRadioBtnClick.bind(this);
 
-    pdfjsLib.GlobalWorkerOptions.workerSrc =
-  '../node_modules/pdfjs-dist/build/pdf.worker.js';
+    pdfjsLib.GlobalWorkerOptions.workerSrc = 'pdfjs-dist/build/pdf.worker.js';
   }
 
   componentDidMount() {
