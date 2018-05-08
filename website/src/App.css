@@ -32,41 +32,15 @@
   margin:0 auto;
 }
 
-#pdf-contents { /*#pdf-file, #resume-type*/
-  /*overflow-y:scroll;*/
-  width:800px;
-  margin:0 auto;
-}
-
-#pdf-file, #resume-type {
+#resumeType {
   display:flex;
   align-items:center;
   text-align: left;
-  margin-left: 6em;
+  margin-left: 2em;
 }
 
-.pdf-canvas {
-  border: 5px solid rgba(0,0,0,0.2);
-  box-sizing: border-box;
-  width: 100%;
-}
-
-#viewerContainer {
-  /* overflow: auto;
-  position: absolute; */
-  /*width:800px;*/
-  margin:0 auto;
+#pdfjsContainer {
+  margin:1em;
   width: 100%;
   height: 100%;
-}
-
-.pdfViewer {
-  border: none !important;
-}
-
-.page {
-  margin-top: 1em ! important;
-  border-left: none !important;
-  border-bottom: none !important;
-  border-right: none !important;
 }
