@@ -7,6 +7,13 @@ import $ from 'jquery';
 import { Container, Row, Col } from 'reactstrap';
 import { Button, ButtonGroup } from 'reactstrap';
 
+import { PDFLinkService } from 'pdfjs-dist/lib/web/pdf_link_service';
+import { PDFViewer } from 'pdfjs-dist/lib/web/pdf_viewer';
+import { PDFFindController } from 'pdfjs-dist/lib/web/pdf_find_controller';
+//import { PDFPrintService } from 'pdfjs-dist/lib/web/pdf_print_service';
+//import { PDFRenderingQueue } from 'pdfjs-dist/lib/web/pdf_rendering_queue';
+import 'pdfjs-dist/web/pdf_viewer.css';
+
 class App extends Component {
   constructor (props) {
     super(props);
@@ -16,12 +23,62 @@ class App extends Component {
     pdfFileRaw: "https://raw.githubusercontent.com/manastalukdar/resume-cv/gh-pages/resources/ManasTalukdar_CV.pdf",
     pdfFileGitHubLong: "https://github.com/manastalukdar/resume-cv/blob/gh-pages/resources/ManasTalukdar_CV.pdf",
     pdfFileGitHubShort: "https://github.com/manastalukdar/resume-cv/blob/gh-pages/resources/ManasTalukdar_vNext.pdf",
-    pdfFileGitHub: "https://github.com/manastalukdar/resume-cv/blob/gh-pages/resources/ManasTalukdar_CV.pdf" };
+    pdfFileGitHub: "https://github.com/manastalukdar/resume-cv/blob/gh-pages/resources/ManasTalukdar_CV.pdf",
+    pdfViewer: "" };
     this.onRadioBtnClick = this.onRadioBtnClick.bind(this);
+
+    pdfjsLib.GlobalWorkerOptions.workerSrc =
+  '../node_modules/pdfjs-dist/build/pdf.worker.js';
   }
 
   componentDidMount() {
-    this.loadPdf(this.props.url);   
+    //this.loadPdf(this.props.url);   
+    this.loadPdfUsingViewer(this.props.url);   
+  }
+
+  loadPdfUsingViewer(pdfDoc) {
+    var CMAP_URL = '../node_modules/pdfjs-dist/cmaps/';
+    var CMAP_PACKED = true;
+    var SEARCH_FOR = ''; // try 'Mozilla';
+    
+    var container = document.getElementById('viewerContainer');
+    var pdfLinkService = new PDFLinkService();
+
+    var pdfViewer = new PDFViewer({
+      container: container,
+      linkService: pdfLinkService
+    });
+
+    pdfLinkService.setViewer(pdfViewer);
+
+    // (Optionally) enable find controller.
+    var pdfFindController = new PDFFindController({
+      pdfViewer: pdfViewer,
+    });
+    pdfViewer.setFindController(pdfFindController);
+
+    container.addEventListener('pagesinit', function () {
+      // We can use pdfViewer now, e.g. let's change default scale.
+      pdfViewer.currentScaleValue = 'page-width';
+
+      if (SEARCH_FOR) { // We can try search for things
+        pdfFindController.executeCommand('find', {query: SEARCH_FOR});
+      }
+    });
+
+    pdfjsLib.getDocument({
+      url: pdfDoc,
+      cMapUrl: CMAP_URL,
+      cMapPacked: CMAP_PACKED,
+    }).then(function(pdfDocument) {
+      // Document loaded, specifying document for the viewer and
+      // the (optional) linkService.
+      pdfViewer.setDocument(pdfDocument);
+    
+      pdfLinkService.setDocument(pdfDocument, null);
+    });
+
+    this.setState({pdfViewer: pdfViewer});
   }
 
   loadPdf(pdfDoc) {
@@ -79,17 +136,38 @@ class App extends Component {
     if (rSelected === "Long") {
       this.setState( {pdfFileRaw: this.state.pdfFileRawLong}, props => {
         this.setState( {pdfFileGitHub: this.state.pdfFileGitHubLong}, props => {
-          this.loadPdf(this.state.pdfFileRaw);
+          this.loadPdfUsingViewer(this.state.pdfFileRaw);
         });
       });
     }
     else if (rSelected === "Short") {
       this.setState( {pdfFileRaw: this.state.pdfFileRawShort}, props => {
         this.setState( {pdfFileGitHub: this.state.pdfFileGitHubShort}, props => {
-          this.loadPdf(this.state.pdfFileRaw);
+          this.loadPdfUsingViewer(this.state.pdfFileRaw);
         });
       });
     }
+  }
+
+  onPrintBtnClick() {
+    alert("Work in progress. Download pdf and print for now.");
+    // let loadingTask = pdfjsLib.getDocument(this.state.pdfFileRaw);
+    // loadingTask.promise.then((doc) => {
+    //   let pagesOverview = this.state.pdfViewer.getPagesOverview();
+    //   let printContainer = document.getElementById('printContainer');
+    //   var pdfPrintService = new PDFPrintService(doc, pagesOverview, printContainer, null);
+    //   let pdfRenderingQueue = new PDFRenderingQueue();
+    //   pdfRenderingQueue.setViewer(this.state.pdfViewer);  
+    //   pdfRenderingQueue.printing = pdfPrintService;
+    //   pdfRenderingQueue.renderHighestPriority();
+    //   pdfPrintService.layout();
+    // }, (reason) => {
+    //   console.error("Error during " + this.state.pdfFileRaw + " loading: " + reason);
+    // });    
+  }
+
+  onPdfFileBtnClick() {
+    window.open(this.state.pdfFileRaw);
   }
 
   render() {
@@ -106,14 +184,36 @@ class App extends Component {
               </ButtonGroup>  
               {/* <p>Selected: {this.state.rSelected}</p> */}
             </Col>
-            <Col id="pdf-file" sm="8">
-              <a href={this.state.pdfFileGitHub} target="_blank"> {/*onClick={this.onRadioBtnClick}*/}
+            <Col id="pdf-file" sm="auto">
+              <a href={this.state.pdfFileGitHub} target="_blank" className="btn btn-primary"> {/*onClick={this.onRadioBtnClick}*/}
                 PDF File
-              </a>          
+              </a> 
+            </Col>          
+            <Col id="pdf-file" sm="auto">
+              <Button color="primary" onClick={() => this.onPrintBtnClick()}>Print</Button>
             </Col>          
           </Row>
-          <p></p>
           </div>
+          <Row>
+            <div id="viewerContainer">
+              <div id="viewer" className="pdfViewer"></div>
+            </div>
+          </Row>
+          {/* <div id="printServiceOverlay" class="container hidden">
+            <div class="dialog">
+              <div class="row">
+                <span>Preparing document for printing…</span>
+              </div>
+              <div class="row">
+                <progress value="0" max="100"></progress>
+                <span class="relative-progress">0%</span>
+              </div>
+              <div class="buttonRow">
+                <button id="printCancel" class="overlayButton"><span>Cancel</span></button>
+              </div>
+            </div>            
+          </div> */}
+          <div id="printContainer"></div>
         </div>      
       </Container>
     );
