@@ -21,6 +21,7 @@ class App extends Component {
     pdfjsLib.GlobalWorkerOptions.workerSrc = 'static/node_modules/pdfjs-dist/build/pdf.worker.js';
 
     ReactGA.initialize('UA-118888630-2');
+    ReactGA.pageview(window.location.pathname + window.location.search);
   }
 
   componentDidMount() { 
