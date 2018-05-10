@@ -5,6 +5,7 @@ import './App.css';
 import pdfjsLib from 'pdfjs-dist/';
 import { Container, Row, } from 'reactstrap';
 import { Button, ButtonGroup } from 'reactstrap';
+import ReactGA from 'react-ga';
 
 import 'pdfjs-dist/build/pdf.worker.js' ;
 
@@ -18,6 +19,8 @@ class App extends Component {
     this.onRadioBtnClick = this.onRadioBtnClick.bind(this);
 
     pdfjsLib.GlobalWorkerOptions.workerSrc = 'static/node_modules/pdfjs-dist/build/pdf.worker.js';
+
+    ReactGA.initialize('UA-118888630-2');
   }
 
   componentDidMount() { 
