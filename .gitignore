@@ -222,6 +222,8 @@ TSWLatexianTemp*
 # pdf files from latex older
 /latex/*
 !/latex/*.tex
+/latex/*_privateInfo.tex
+/latex/*-*.tex
 
 
 package-lock.json
