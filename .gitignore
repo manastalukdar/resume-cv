@@ -219,12 +219,12 @@ TSWLatexianTemp*
 # expex forward references with \gathertags
 *-tags.tex
 
-# non tex files from latex older
+# non tex files from latex folder
 /latex/*
 !/latex/*/
+/latex/CustomVersions/*
+#!/latex/CustomVersions/*.tex
 !/latex/*.tex
 /latex/*_privateInfo.tex
-/latex/*-*.tex
-
 
 package-lock.json
