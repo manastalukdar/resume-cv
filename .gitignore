@@ -219,8 +219,9 @@ TSWLatexianTemp*
 # expex forward references with \gathertags
 *-tags.tex
 
-# pdf files from latex older
+# non tex files from latex older
 /latex/*
+!/latex/*/
 !/latex/*.tex
 /latex/*_privateInfo.tex
 /latex/*-*.tex
