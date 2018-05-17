@@ -13,9 +13,9 @@ class App extends Component {
   constructor (props) {
     super(props);
     this.state = { rSelected: "Long",
-    pdfFileRawLong: "ManasTalukdar_CV.pdf",
-    pdfFileRawShort: "ManasTalukdar_vNext.pdf",
-    pdfFileRaw: "ManasTalukdar_CV.pdf" };
+    pdfFileRawLong: "ManasTalukdar_cv.pdf",
+    pdfFileRawShort: "ManasTalukdar_onePage.pdf",
+    pdfFileRaw: "ManasTalukdar_cv.pdf" };
     this.onRadioBtnClick = this.onRadioBtnClick.bind(this);
 
     pdfjsLib.GlobalWorkerOptions.workerSrc = 'static/node_modules/pdfjs-dist/build/pdf.worker.js';

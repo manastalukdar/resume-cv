@@ -6,5 +6,5 @@ import { unregister } from './registerServiceWorker';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-ReactDOM.render(<App url='ManasTalukdar_CV.pdf'/>, document.getElementById('root'));
+ReactDOM.render(<App url='ManasTalukdar_cv.pdf'/>, document.getElementById('root'));
 unregister();
