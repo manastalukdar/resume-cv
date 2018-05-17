@@ -1,0 +1,33 @@
+\NewDocumentCommand{\educationItem}{mmmom}{
+	\IfNoValueTF{#4}
+		{ \textbf{#1}, #2, \textit{#3} & #5 \\ }
+		{ \textbf{#1}, #2, \textit{#3}, {\small #4} & #5 \\ }
+}
+
+\newcommand{\experienceItem}[3]{
+	\begin{tabular*}{\textwidth}{c@{\extracolsep{\fill}}c}
+		\multicolumn{1}{l}{\textbf{#1}, #2} & \multicolumn{1}{r}{#3}\\
+	\end{tabular*}\vspace{-10pt}
+}
+
+\ExplSyntaxOn
+\NewDocumentCommand{\experienceSubItem}{mmo}{
+	\tl_if_empty:nTF{#2} 
+		{
+			\IfNoValueTF{#3} 
+				{ \textit{#1}\vspace{-8pt} }
+				{ \textit{#1\enspace[\href{#3}{#3}]}\vspace{-8pt} }
+		}
+		{
+			\IfNoValueTF{#3} 
+				{ \textit{#1\enspace(#2)}\vspace{-8pt} }
+				{ \textit{#1\enspace(#2)\enspace[\href{#3}{#3}]}\vspace{-8pt} }
+		}
+}
+\ExplSyntaxOff
+
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}}
+\newcommand{\resumeListItem}[1]{
+	\item{#1 \vspace{-6pt}}
+}
