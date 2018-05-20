@@ -1,0 +1,139 @@
+\input{./../PackagesFormattingMetadata}
+
+%-------------------------
+% Custom commands
+
+\NewDocumentCommand{\educationItem}{mmmom}{
+	\IfNoValueTF{#4}
+		{ \textbf{#1}, #2, \textit{#3} & #5 \\ }
+		{ \textbf{#1}, #2, \textit{#3}, {\small #4} & #5 \\ }
+}
+
+\newcommand{\experienceItem}[3]{
+	\begin{tabular*}{\textwidth}{c@{\extracolsep{\fill}}c}
+		\multicolumn{1}{l}{\textbf{#1}, #2} & \multicolumn{1}{r}{#3}\\
+	\end{tabular*}\vspace{-10pt}
+}
+
+\ExplSyntaxOn
+\NewDocumentCommand{\experienceSubItem}{mmmo}{ % name, technologies, time-range, link
+	\tl_if_empty:nTF{#3} 
+	{
+		\IfNoValueTF{#4} 
+			{ \textit{#1\enspace(#2)}\vspace{-8pt} }
+			{ \textit{#1\enspace(#2)\enspace[\href{#4}{#4}]}\vspace{-8pt} }
+	}
+	{
+		\IfNoValueTF{#4} 
+			{ \textit{#1\enspace(#2)\enspace(#3)}\vspace{-8pt} }
+			{ \textit{#1\enspace(#2)\enspace(#3)\enspace[\href{#4}{#4}]}\vspace{-8pt} }
+	}
+}
+\ExplSyntaxOff
+
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}}
+\newcommand{\resumeListItem}[1]{
+	\item{#1 \vspace{-6pt}}
+}
+
+%-------------------------------------------
+%%%%%%  Resume content starts here  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}\thispagestyle{empty}
+	
+		%----------Heading-----------------
+	\input{./../Heading}
+	
+	%-----------Summary-----------------
+	\input{./../Summary}
+	
+	%-----------Education-----------------
+	\section{Education}	
+	
+	\input{./../Education}
+
+	%-----------Recent Experience-----------------
+	\section{Recent Experience}
+	
+	\experienceItem{Software Engineering Team Leader}{OSIsoft, LLC., San Leandro, CA}{Jan 2016 -- present}
+
+	\experienceSubItem{IoT Product}{.net core, C\#, docker, reactive programming, Azure, Angular, REST APIs}{}%May 2017 - present
+	
+	\resumeItemListStart
+	\resumeListItem {Started new team/project on enterprise wide IoT data collection. Interviewed candidates for hiring into the team. Gathered requirements and defined product direction in collaboration with product management and group lead.}
+	\resumeListItem {Migrated legacy source control to Git. Developed an administration API with back-end and front-end. Developed a logging infrastructure. Developed mechanism for data egress from IoT module to enterprise storage solutions.}
+	\resumeItemListEnd
+
+	\experienceSubItem{SaaS Product}{.net core, C\#, Azure, sql, nosql, micro-services, REST APIs}{}[https://bit.ly/2HUbQKb]%Jan 2016 - April 2017
+	
+	\resumeItemListStart
+	\resumeListItem {Managed (using Agile processes) a team of software developers working on distributed enterprise scale SaaS product.}
+	\resumeListItem {Defined system architecture for a distributed sequential data store to process billions of streams. Collaborated with customers, product managers to identify requirements and develop road-map. Managed SDLC. Introduced CI. Researched new partner technologies and provided feedback [\href{https://bit.ly/2Hy2gfU}{bit.ly/2Hy2gfU}]. Presented at meetings and conferences.}
+	\resumeListItem {Recruited and on-boarded developers into team. Assisted team members with sprint tasks and helped them complete goals. Developed a caching service - passed on to developers in the team.}
+	\resumeItemListEnd
+
+	\experienceItem{Senior Software Developer}{OSIsoft, LLC., San Leandro, CA}{Feb 2015 -- Jan 2016}
+	
+	\experienceSubItem{SaaS Product}{.net, C\#, Azure, micro-services, REST APIs, Angular}{}[https://bit.ly/2HUbQKb]
+	
+	\resumeItemListStart
+	\resumeListItem {Architected and developed distributed micro-services using new cloud technology -- Service Fabric [\href{https://bit.ly/2r5hSxY}{bit.ly/2r5hSxY}].}
+	\resumeListItem {Security champion for team. Threat modeled components and data flow in the project and led review sessions.}
+	\resumeListItem {Architected full-stack real-time health monitoring and logging system with data access and client APIs.}
+	\resumeListItem {Interviewed, on-boarded and mentored new engineers in project.}
+	\resumeItemListEnd
+
+	\experienceItem{Software Developer}{OSIsoft, LLC., San Leandro, CA}{May 2011 -- Jan 2015}
+	
+	\experienceSubItem{SaaS R\&D Project}{.net, C\#, Azure, micro-services}{June 2014 - Jan 2015}[https://bit.ly/2HUbQKb]
+
+	\resumeItemListStart
+	\resumeListItem {Developed components of multi-tenant SaaS product for process data storage. Added data replication. Developed automated multi-threaded chaos tests. Developed, documented standards for DevOps -  passed on to other engineers.}
+	\resumeListItem {Mentored new engineer in developing a real-time health monitoring framework.}
+	\resumeItemListEnd
+
+	\experienceSubItem{SaaS Product}{.net, C\#, Azure, micro-services, REST APIs, SQL, jQuery}{Feb 2013 - June 2014}[https://bit.ly/2r4i9jV]
+	
+	\resumeItemListStart
+	\resumeListItem {Developed front-end and back-end components of cloud-based enterprise SaaS product for process data transfers.}
+	\resumeListItem {Developed secure RESTful APIs. Did threat modeling of cloud services and corresponding on-prem components.}
+	\resumeListItem {Architected and developed an alarm infrastructure and a cloud-based software delivery and auto-update system.}
+	\resumeListItem {Enhanced SQL database schema and developed full stack from server-side data-access layer to client-side APIs.}
+	\resumeListItem {Developed DevOps tools and data-mining queries for reporting on health statuses of multi-tenant cloud application.}
+	\resumeListItem {Developed multi-layered modular and scalable WPF applications.}
+	\resumeListItem {Consistently delivered committed items in fast-paced, quick turn-around, scrum-based development cycles. Led knowledge transfer sessions to handover work to new team member(s) while transitioning to a R\&D project.}
+	\resumeItemListEnd
+
+	\experienceSubItem{Middleware Box Product}{C++, .net, C\#, SQL}{May 2011 - Feb 2013}
+	
+	\resumeItemListStart
+	\resumeListItem {Developed and maintained native/managed test automation frameworks. \ Developed and maintained software delivery systems using Wise and WiX. Enhanced and maintained codebase (specifically data buffering) for core middleware.}
+	\resumeItemListEnd
+
+	%-----------Prior Experience-----------------
+	\section{Prior Experience}
+	
+	\input{./../Experience/OSIsoft/QaEngineer}
+	
+	\input{./..//Experience/OSIsoft/Engineer}
+	
+	\input{./../Experience/NCSU/GraduateRaTa_combined}	
+	
+	\experienceItem{Specialist Customer Support}{IBM, Daksh e-Services Private Limited, India}{Jan 2005 -- March 2005}
+	
+	\experienceItem{Summer Intern, Control and Instrumentation}{NEEPCO, AGBPP, India}{July 2003 -- Aug 2003}
+
+	%-----------Publications-----------------
+	\section{Publications}
+	
+	\input{./../Publications}
+	
+	%-----------Skills-----------------
+	\section{Skills}
+	
+	\input{./../Skills}
+
+	\textbf{Assam Fine Arts and Crafts Society}, India, 5-year diploma in Fine Arts and Crafts.
+
+	%-------------------------------------------
+\end{document}

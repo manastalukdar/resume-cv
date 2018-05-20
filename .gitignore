@@ -223,7 +223,7 @@ TSWLatexianTemp*
 /latex/*
 !/latex/*/
 /latex/CustomVersions/*
-#!/latex/CustomVersions/*.tex
+!/latex/CustomVersions/*.tex
 !/latex/*.tex
 /latex/*_privateInfo.tex
 
