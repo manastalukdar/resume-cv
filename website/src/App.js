@@ -15,6 +15,7 @@ class App extends Component {
     this.state = { rSelected: "Long",
     pdfFileRawLong: "ManasTalukdar_cv.pdf",
     pdfFileRawShort: "ManasTalukdar_onePage.pdf",
+    pdfFileRawBalanced: "ManasTalukdar.pdf",
     pdfFileRaw: "ManasTalukdar_cv.pdf" };
     this.onRadioBtnClick = this.onRadioBtnClick.bind(this);
 
@@ -39,6 +40,11 @@ class App extends Component {
           console.log(this.state.pdfFileRaw);
       });
     }
+    else if (rSelected === "Balanced") {
+      this.setState( {pdfFileRaw: this.state.pdfFileRawBalanced}, props => {
+          console.log(this.state.pdfFileRaw);
+      });
+    }
   }
 
   render() {
@@ -52,6 +58,7 @@ class App extends Component {
               <ButtonGroup>
                 <Button color="primary" onClick={() => this.onRadioBtnClick("Long")} active={this.state.rSelected === "Long"}>Long</Button>
                 <Button color="primary" onClick={() => this.onRadioBtnClick("Short")} active={this.state.rSelected === "Short"}>Short</Button>
+                <Button color="primary" onClick={() => this.onRadioBtnClick("Balanced")} active={this.state.rSelected === "Balanced"}>Balanced</Button>
               </ButtonGroup>
             </div>
           </Row>
