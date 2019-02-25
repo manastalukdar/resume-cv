@@ -27,7 +27,7 @@ script:
   - cd website
   - npm install  
   - cp ../_build/*.pdf ./public/resources/
-  - CI=false npm run build
+  - CI=false npm run build # CI=false tells travis to not treat warnings as errors.
 
 #https://caveofcode.com/2017/05/publish-an-angular-app-to-github-pages/
 deploy:
