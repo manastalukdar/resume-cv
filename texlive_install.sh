@@ -34,6 +34,9 @@ tlmgr install collection-latex
 # Install babel languages
 tlmgr install collection-langeuropean
 
+# https://tex.stackexchange.com/questions/328232/what-is-this-mysterious-ecrm1000-missing-file
+tlmgr install collection-fontsrecommended
+
 # Index of packages: http://ctan.mirrors.hoobly.com/systems/texlive/tlnet/archive/
 # Other contrib packages: done as a block to avoid multiple calls to tlmgr
 # pgf includes tikz
