@@ -84,6 +84,7 @@ tlmgr install   \
   titlesec      \
   l3packages    \
   l3kernel      \
+  fontenc       \
   tex-gyre
 
 
