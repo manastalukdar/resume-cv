@@ -88,6 +88,7 @@ tlmgr install   \
   l3packages    \
   l3kernel      \
   fontenc       \
+  ragged2e      \
   tex-gyre
 
 
