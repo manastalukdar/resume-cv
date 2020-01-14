@@ -91,7 +91,8 @@ tlmgr install   \
   ragged2e      \
   tex-gyre      \
   pdfescape     \
-  letltxmacro
+  letltxmacro   \
+  oberdiek
 
 
 # Keep no backups (not required, simply makes cache bigger)
