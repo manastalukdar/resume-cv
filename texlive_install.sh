@@ -92,7 +92,8 @@ tlmgr install   \
   tex-gyre      \
   pdfescape     \
   letltxmacro   \
-  oberdiek
+  oberdiek      \
+  bitset
 
 
 # Keep no backups (not required, simply makes cache bigger)
