@@ -90,7 +90,8 @@ tlmgr install   \
   fontenc       \
   ragged2e      \
   tex-gyre      \
-  pdfescape
+  pdfescape     \
+  letltxmacro
 
 
 # Keep no backups (not required, simply makes cache bigger)
