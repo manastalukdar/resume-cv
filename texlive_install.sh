@@ -89,7 +89,8 @@ tlmgr install   \
   l3kernel      \
   fontenc       \
   ragged2e      \
-  tex-gyre
+  tex-gyre      \
+  pdfescape
 
 
 # Keep no backups (not required, simply makes cache bigger)
