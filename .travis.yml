@@ -22,7 +22,6 @@ script:
   - cd latex
   - travis_wait 3 pdflatex -interaction=nonstopmode -halt-on-error -output-directory ../_build ManasTalukdar.tex
   - travis_wait 3 pdflatex -interaction=nonstopmode -halt-on-error -output-directory ../_build ManasTalukdar_cv.tex
-  - travis_wait 3 pdflatex -interaction=nonstopmode -halt-on-error -output-directory ../_build ManasTalukdar_balanced.tex
   - cd ..
   - cd website
   - npm install  
