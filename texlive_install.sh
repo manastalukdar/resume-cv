@@ -93,7 +93,8 @@ tlmgr install   \
   pdfescape     \
   letltxmacro   \
   oberdiek      \
-  bitset
+  bitset		\
+  enumitem
 
 
 # Keep no backups (not required, simply makes cache bigger)
