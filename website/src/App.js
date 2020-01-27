@@ -12,7 +12,7 @@ import 'pdfjs-dist/build/pdf.worker.js' ;
 class App extends Component {
   constructor (props) {
     super(props);
-    this.state = { rSelected: "Long",
+    this.state = { rSelected: "Short",
     pdfFileRawLong: "ManasTalukdar_cv.pdf",
     pdfFileRawShort: "ManasTalukdar.pdf",
     pdfFileRaw: "ManasTalukdar.pdf" };
