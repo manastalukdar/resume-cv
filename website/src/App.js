@@ -29,13 +29,12 @@ class App extends Component {
 
   onRadioBtnClick(rSelected) {
     this.setState({ rSelected:  rSelected});
-    if (rSelected === "Long") {
-      this.setState( {pdfFileRaw: this.state.pdfFileRawLong}, props => {
+    if (rSelected === "Short") {
+      this.setState( {pdfFileRaw: this.state.pdfFileRawShort}, props => {
           console.log(this.state.pdfFileRaw);
       });
-    }
-    else if (rSelected === "Short") {
-      this.setState( {pdfFileRaw: this.state.pdfFileRawShort}, props => {
+    } else if (rSelected === "Long") {
+      this.setState( {pdfFileRaw: this.state.pdfFileRawLong}, props => {
           console.log(this.state.pdfFileRaw);
       });
     }
@@ -50,8 +49,8 @@ class App extends Component {
           <Row>
             <div id="resumeType">
               <ButtonGroup>
-                <Button color="primary" onClick={() => this.onRadioBtnClick("Long")} active={this.state.rSelected === "Long"}>Long</Button>
                 <Button color="primary" onClick={() => this.onRadioBtnClick("Short")} active={this.state.rSelected === "Short"}>Short</Button>
+                <Button color="primary" onClick={() => this.onRadioBtnClick("Long")} active={this.state.rSelected === "Long"}>Long</Button>
               </ButtonGroup>
             </div>
           </Row>
