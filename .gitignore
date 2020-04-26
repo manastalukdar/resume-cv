@@ -230,3 +230,5 @@ TSWLatexianTemp*
 package-lock.json
 
 report.*.json
+
+.metals
