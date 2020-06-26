@@ -20,7 +20,7 @@ jobs:
         with:
           node-version: '14'
       - run: node --version
-      - run: source ./texlive_install.sh
+      - run: sudo source ./texlive_install.sh
       - run: mkdir _build
       - working-directory: latex
         run: pdflatex -interaction=nonstopmode -halt-on-error -output-directory ../_build ManasTalukdar.tex
