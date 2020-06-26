@@ -1,0 +1,42 @@
+name: build-deploy
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+jobs:
+  build:
+    name: Build, Deploy
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest]
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '14'
+      - run: node --version
+      - run: source ./texlive_install.sh
+      - run: mkdir _build
+      - working-directory: latex
+        run: pdflatex -interaction=nonstopmode -halt-on-error -output-directory ../_build ManasTalukdar.tex
+      - working-directory: latex
+        run: pdflatex -interaction=nonstopmode -halt-on-error -output-directory ../_build ManasTalukdar_cv.tex
+      - working-directory: website
+        run: npm install
+      - working-directory: website
+        run: cp ../_build/*.pdf ./public/resources/
+      - working-directory: website
+        run: npm run build
+      # - name: Deploy
+      #   uses: peaceiris/actions-gh-pages@v3
+      #   with:
+      #     github_token: ${{ secrets.GITHUB_TOKEN }}
+      #     publish_dir: ./website/build
+      #     publish_branch:  gh-pages  # default: gh-pages
+      #     keep_files: false # default: false
+      #     commit_message: "GitHub CI Updates [ci skip]"
