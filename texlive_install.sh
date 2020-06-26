@@ -43,23 +43,21 @@ tlmgr install collection-fontsrecommended
 tlmgr install   \
   exam          \
   amsmath       \
-  amsthm        \
-  amssymb       \
+  amscls        \
+#  amssymb       \
   mathtools     \
-  enumerate     \
   thmtools      \
   stmaryrd      \
   xcolor        \
   pdfpages      \
-  centernot     \
   pgf           \
   cancel        \
   hyperref      \
   bookmark      \
   pgfplots      \
-  bm            \
+  tools         \
   listings      \
-  graphicx      \
+  graphics      \
   scalerel      \
   stackengine   \
   etoolbox      \
@@ -87,7 +85,7 @@ tlmgr install   \
   titlesec      \
   l3packages    \
   l3kernel      \
-  fontenc       \
+  latex         \
   ragged2e      \
   tex-gyre      \
   pdfescape     \
