@@ -16,23 +16,33 @@ jobs:
         os: [ubuntu-latest]
     steps:
       - uses: actions/checkout@v2
+      #- run: chmod +x ./texlive_install.sh
+      #- run: ./texlive_install.sh
+      # - run: sudo apt-get install texlive-latex-base texlive-latex-extra texlive-latex-recommended texlive-fonts-recommended
+      # - run: tlmgr init-usertree
+      # - run: sudo tlmgr option repository ftp://tug.org/historic/systems/texlive/2017/tlnet-final
+      # - run: tlmgr install texliveonfly
+      - run: mkdir _build
+      - uses: xu-cheng/latex-action@master
+        with:
+          working_directory: latex
+          args: -halt-on-error -output-directory ../_build
+          root_file: ManasTalukdar.tex
+      - uses: xu-cheng/latex-action@master
+        with:
+          working_directory: latex
+          args: -halt-on-error -output-directory ../_build
+          root_file: ManasTalukdar_cv.tex
+      # - working-directory: latex
+      #   run: texliveonfly -c latexmk -a "-pdf -interaction=nonstopmode -halt-on-error -output-directory ../_build" ManasTalukdar.tex
+      # - working-directory: latex
+      #   run: texliveonfly -c latexmk -a "pdf -interaction=nonstopmode -halt-on-error -output-directory ../_build" ManasTalukdar_cv.tex
+      # - working-directory: website
       - uses: actions/setup-node@v1
         with:
           node-version: '14'
       - run: node --version
-      #- run: chmod +x ./texlive_install.sh
-      #- run: ./texlive_install.sh
-      - run: sudo apt-get install texlive-latex-base texlive-latex-extra texlive-latex-recommended texlive-fonts-recommended
-      - run: tlmgr init-usertree
-      - run: sudo tlmgr option repository ftp://tug.org/historic/systems/texlive/2017/tlnet-final
-      - run: tlmgr install texliveonfly
-      - run: mkdir _build
-      - working-directory: latex
-        run: texliveonfly -c latexmk -a "-pdf -interaction=nonstopmode -halt-on-error -output-directory ../_build" ManasTalukdar.tex
-      - working-directory: latex
-        run: texliveonfly -c latexmk -a "pdf -interaction=nonstopmode -halt-on-error -output-directory ../_build" ManasTalukdar_cv.tex
-      - working-directory: website
-        run: npm install
+      - run: npm install
       - working-directory: website
         run: cp ../_build/*.pdf ./public/resources/
       - working-directory: website
