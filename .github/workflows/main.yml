@@ -22,6 +22,7 @@ jobs:
       - run: node --version
       - run: chmod +x ./texlive_install.sh
       - run: ./texlive_install.sh
+      - run: sudo apt install texlive-latex-base
       - run: mkdir _build
       - working-directory: latex
         run: pdflatex -interaction=nonstopmode -halt-on-error -output-directory ../_build ManasTalukdar.tex
