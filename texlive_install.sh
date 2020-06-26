@@ -93,7 +93,7 @@ tlmgr install   \
   pdfescape     \
   letltxmacro   \
   oberdiek      \
-  bitset		\
+  bitset		    \
   enumitem
 
 
