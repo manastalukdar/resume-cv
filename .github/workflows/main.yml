@@ -16,12 +16,6 @@ jobs:
         os: [ubuntu-latest]
     steps:
       - uses: actions/checkout@v2
-      #- run: chmod +x ./texlive_install.sh
-      #- run: ./texlive_install.sh
-      # - run: sudo apt-get install texlive-latex-base texlive-latex-extra texlive-latex-recommended texlive-fonts-recommended
-      # - run: tlmgr init-usertree
-      # - run: sudo tlmgr option repository ftp://tug.org/historic/systems/texlive/2017/tlnet-final
-      # - run: tlmgr install texliveonfly
       - run: mkdir _build
       - uses: xu-cheng/latex-action@v2
         with:
@@ -33,11 +27,6 @@ jobs:
           working_directory: latex
           #args: -output-directory ../_build
           root_file: ManasTalukdar_cv.tex
-      # - working-directory: latex
-      #   run: texliveonfly -c latexmk -a "-pdf -interaction=nonstopmode -halt-on-error -output-directory ../_build" ManasTalukdar.tex
-      # - working-directory: latex
-      #   run: texliveonfly -c latexmk -a "pdf -interaction=nonstopmode -halt-on-error -output-directory ../_build" ManasTalukdar_cv.tex
-      # - working-directory: website
       - uses: actions/setup-node@v1
         with:
           node-version: '14'
@@ -48,11 +37,11 @@ jobs:
         run: cp ../latex/*.pdf ./public/resources/
       - working-directory: website
         run: npm run build
-      # - name: Deploy
-      #   uses: peaceiris/actions-gh-pages@v3
-      #   with:
-      #     github_token: ${{ secrets.GITHUB_TOKEN }}
-      #     publish_dir: ./website/build
-      #     publish_branch:  gh-pages  # default: gh-pages
-      #     keep_files: false # default: false
-      #     commit_message: "GitHub CI Updates [ci skip]"
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./website/build
+          publish_branch:  gh-pages  # default: gh-pages
+          keep_files: false # default: false
+          commit_message: "GitHub CI Updates [ci skip]"
