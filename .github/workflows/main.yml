@@ -26,12 +26,12 @@ jobs:
       - uses: xu-cheng/latex-action@v2
         with:
           working_directory: latex
-          args: -output-directory ../_build
+          #args: -output-directory ../_build
           root_file: ManasTalukdar.tex
       - uses: xu-cheng/latex-action@v2
         with:
           working_directory: latex
-          args: -output-directory ../_build
+          #args: -output-directory ../_build
           root_file: ManasTalukdar_cv.tex
       # - working-directory: latex
       #   run: texliveonfly -c latexmk -a "-pdf -interaction=nonstopmode -halt-on-error -output-directory ../_build" ManasTalukdar.tex
@@ -42,9 +42,10 @@ jobs:
         with:
           node-version: '14'
       - run: node --version
-      - run: npm install
       - working-directory: website
-        run: cp ../_build/*.pdf ./public/resources/
+        run: npm install
+      - working-directory: website
+        run: cp ../latex/*.pdf ./public/resources/
       - working-directory: website
         run: npm run build
       # - name: Deploy
