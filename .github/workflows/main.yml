@@ -24,6 +24,7 @@ jobs:
       #- run: ./texlive_install.sh
       - run: sudo apt-get install texlive-latex-base texlive-latex-extra texlive-latex-recommended texlive-fonts-recommended
       - run: tlmgr init-usertree
+      - run: sudo tlmgr option repository ftp://tug.org/historic/systems/texlive/2017/tlnet-final
       - run: tlmgr install texliveonfly
       - run: mkdir _build
       - working-directory: latex
