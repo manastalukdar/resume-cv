@@ -23,15 +23,15 @@ jobs:
       # - run: sudo tlmgr option repository ftp://tug.org/historic/systems/texlive/2017/tlnet-final
       # - run: tlmgr install texliveonfly
       - run: mkdir _build
-      - uses: xu-cheng/latex-action@master
+      - uses: xu-cheng/latex-action@v2
         with:
           working_directory: latex
-          args: -halt-on-error -output-directory ../_build
+          args: -output-directory ../_build
           root_file: ManasTalukdar.tex
-      - uses: xu-cheng/latex-action@master
+      - uses: xu-cheng/latex-action@v2
         with:
           working_directory: latex
-          args: -halt-on-error -output-directory ../_build
+          args: -output-directory ../_build
           root_file: ManasTalukdar_cv.tex
       # - working-directory: latex
       #   run: texliveonfly -c latexmk -a "-pdf -interaction=nonstopmode -halt-on-error -output-directory ../_build" ManasTalukdar.tex
