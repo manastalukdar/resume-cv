@@ -2,12 +2,9 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import './App.css';
 
-import pdfjsLib from 'pdfjs-dist/';
 import { Container, Row, } from 'reactstrap';
 import { Button, ButtonGroup } from 'reactstrap';
 import ReactGA from 'react-ga';
-
-import 'pdfjs-dist/build/pdf.worker.js' ;
 
 class App extends Component {
   constructor (props) {
@@ -17,8 +14,6 @@ class App extends Component {
     pdfFileRawShort: "ManasTalukdar.pdf",
     pdfFileRaw: "ManasTalukdar.pdf" };
     this.onRadioBtnClick = this.onRadioBtnClick.bind(this);
-
-    pdfjsLib.GlobalWorkerOptions.workerSrc = 'static/node_modules/pdfjs-dist/build/pdf.worker.js';
 
     ReactGA.initialize('UA-118888630-2');
     ReactGA.pageview(window.location.pathname + window.location.search);
