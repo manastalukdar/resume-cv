@@ -92,6 +92,7 @@ tlmgr install   \
   letltxmacro   \
   oberdiek      \
   bitset		    \
+  lato          \
   enumitem
 
 
