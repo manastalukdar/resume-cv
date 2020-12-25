@@ -93,6 +93,7 @@ tlmgr install   \
   oberdiek      \
   bitset		    \
   lato          \
+  fontaxes      \
   enumitem
 
 
