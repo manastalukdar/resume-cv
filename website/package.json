@@ -4,14 +4,14 @@
   "homepage": "https://manastalukdar.github.io/resume-cv/",
   "private": true,
   "dependencies": {
-    "bootstrap": "^4.5.2",
+    "bootstrap": "^4.5.3",
     "jquery": "^3.5.1",
     "pdfjs-dist": "^2.5.207",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-ga": "^3.1.2",
-    "react-scripts": "^3.4.3",
-    "reactstrap": "^8.6.0"
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-ga": "^3.3.0",
+    "react-scripts": "^4.0.1",
+    "reactstrap": "^8.8.0"
   },
   "scripts": {
     "start": "react-scripts start",
