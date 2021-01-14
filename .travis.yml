@@ -6,7 +6,7 @@ node_js:
 
 branches:
   only:
-    - master
+    - main
 
 cache:
   directories:
@@ -36,5 +36,5 @@ script:
 #   keep-history: false
 #   local-dir: website/build
 #   on:
-#     branch: master
+#     branch: main
 #   target-branch: gh-pages
