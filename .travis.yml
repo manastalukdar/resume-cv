@@ -22,11 +22,11 @@ script:
   - cd latex
   - travis_wait 3 pdflatex -interaction=nonstopmode -halt-on-error -output-directory ../_build ManasTalukdar.tex
   - travis_wait 3 pdflatex -interaction=nonstopmode -halt-on-error -output-directory ../_build ManasTalukdar_cv.tex
-  - cd ..
-  - cd website
-  - npm install  
-  - cp ../_build/*.pdf ./public/resources/
-  - CI=false npm run build # CI=false tells travis to not treat warnings as errors.
+  # - cd ..
+  # - cd website
+  # - npm install  
+  # - cp ../_build/*.pdf ./public/resources/
+  # - CI=false npm run build # CI=false tells travis to not treat warnings as errors.
 
 #https://caveofcode.com/2017/05/publish-an-angular-app-to-github-pages/
 # deploy:
