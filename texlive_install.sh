@@ -94,7 +94,8 @@ tlmgr install   \
   bitset		    \
   lato          \
   fontaxes      \
-  enumitem
+  enumitem      \
+  everysel
 
 
 # Keep no backups (not required, simply makes cache bigger)
