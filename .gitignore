@@ -232,3 +232,5 @@ package-lock.json
 report.*.json
 
 .metals
+
+.DS_Store
