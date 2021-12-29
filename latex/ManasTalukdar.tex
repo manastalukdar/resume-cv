@@ -3,7 +3,7 @@
 %-------------------------
 % Overrides
 \geometry{left=0.4in,right=0.4in,bottom=0.4in,top=0.4in} % updating margins; also accepts mm
-\renewcommand{\familydefault}{lmss} % default: lmr
+\renewcommand{\familydefault}{lmr} % default: lmr / lmss
 
 %-------------------------
 % Custom commands
@@ -18,7 +18,7 @@
 	\input{Heading}
 	
 	%-----------Summary-----------------
-	\input{Summary_concise}
+	\input{Summary_condensed}
 	
 	%-----------Education-----------------
 	\section{Education}	
@@ -28,6 +28,8 @@
 	%-----------Experience-----------------
 	\section{Experience}
 	
+	\input{./Experience/C3_AI/SeniorEngineeringManager_condensed}
+	
 	\input{./Experience/C3_AI/EngineeringManager_condensed}
 	
 	\input{./Experience/OSIsoft/EngineeringManager_combined}
@@ -36,13 +38,14 @@
 	
 	%-----------Publications-----------------
 	\section{Publications}
-	
+	\begin{small}
 	\input{Publications}
+	\end{small}
 
 	%-----------Skills-----------------
 	\section{Skills}
 
-	\input{Skills}
+	\input{Skills_condensed}
 
 	\textbf{Assam Fine Arts and Crafts Society}, India, 5-year diploma in Fine Arts and Crafts.
 
