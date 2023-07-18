@@ -4,7 +4,7 @@ import './App.css';
 
 import { Container, Row, } from 'reactstrap';
 import { Button, ButtonGroup } from 'reactstrap';
-import ReactGA from 'react-ga';
+import ReactGA from 'react-ga4';
 
 class App extends Component {
   constructor (props) {
@@ -15,8 +15,7 @@ class App extends Component {
     pdfFileRaw: "ManasTalukdar.pdf" };
     this.onRadioBtnClick = this.onRadioBtnClick.bind(this);
 
-    ReactGA.initialize('UA-118888630-2');
-    ReactGA.pageview(window.location.pathname + window.location.search);
+    ReactGA.initialize('G-355DV58VEL');
   }
 
   componentDidMount() { 
