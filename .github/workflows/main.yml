@@ -17,12 +17,12 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: mkdir _build
-      - uses: xu-cheng/latex-action@v2
+      - uses: xu-cheng/latex-action@v3
         with:
           working_directory: latex
           #args: -output-directory ../_build
           root_file: ManasTalukdar.tex
-      - uses: xu-cheng/latex-action@v2
+      - uses: xu-cheng/latex-action@v3
         with:
           working_directory: latex
           #args: -output-directory ../_build
