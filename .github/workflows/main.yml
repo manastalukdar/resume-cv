@@ -15,7 +15,7 @@ jobs:
       matrix:
         os: [ubuntu-latest]
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - run: mkdir _build
       - uses: xu-cheng/latex-action@v2
         with:
