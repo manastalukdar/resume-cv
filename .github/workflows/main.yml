@@ -27,7 +27,7 @@ jobs:
           working_directory: latex
           #args: -output-directory ../_build
           root_file: ManasTalukdar_cv.tex
-      - uses: actions/setup-node@v1
+      - uses: actions/setup-node@v4
         with:
           node-version: latest
       - run: node --version
