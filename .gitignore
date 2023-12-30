@@ -227,7 +227,7 @@ TSWLatexianTemp*
 !/latex/*.tex
 /latex/*_privateInfo.tex
 
-package-lock.json
+# package-lock.json
 
 report.*.json
 
