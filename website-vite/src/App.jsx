@@ -24,11 +24,11 @@ class App extends Component {
   onRadioBtnClick(rSelected) {
     this.setState({ rSelected:  rSelected});
     if (rSelected === "Short") {
-      this.setState( {pdfFileRaw: this.state.pdfFileRawShort}, props => {
+      this.setState( {pdfFileRaw: this.state.pdfFileRawShort}, () => {
           console.log(this.state.pdfFileRaw);
       });
     } else if (rSelected === "Long") {
-      this.setState( {pdfFileRaw: this.state.pdfFileRawLong}, props => {
+      this.setState( {pdfFileRaw: this.state.pdfFileRawLong}, () => {
           console.log(this.state.pdfFileRaw);
       });
     }
@@ -51,7 +51,7 @@ class App extends Component {
           </div>
           <Row>
             <div id="pdfjsContainer">
-              <object data={process.env.PUBLIC_URL + '/pdfjs/web/viewer.html?file=' + process.env.PUBLIC_URL + '/resources/' + this.state.pdfFileRaw} width="100%" height="600">PDF resume</object>
+              <object data={'/pdfjs/web/viewer.html?file=/resources/' + this.state.pdfFileRaw} width="100%" height="600">PDF resume</object>
             </div>
           </Row>
         </div>      
