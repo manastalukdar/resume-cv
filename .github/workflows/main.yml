@@ -44,7 +44,7 @@ jobs:
         if: ${{ github.event_name == 'push' && env.BRANCH == 'main' }}
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./website/build
+          publish_dir: ./website/dist
           publish_branch:  gh-pages  # default: gh-pages
           keep_files: false # default: false
           force_orphan: true
