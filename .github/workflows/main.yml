@@ -19,12 +19,12 @@ jobs:
         run: echo "BRANCH=$(echo ${GITHUB_REF##*/})" >> $GITHUB_ENV
       - uses: actions/checkout@v4
       - run: mkdir _build
-      - uses: xu-cheng/latex-action@v3
+      - uses: xu-cheng/latex-action@v4
         with:
           working_directory: latex
           #args: -output-directory ../_build
           root_file: ManasTalukdar.tex
-      - uses: xu-cheng/latex-action@v3
+      - uses: xu-cheng/latex-action@v4
         with:
           working_directory: latex
           #args: -output-directory ../_build
